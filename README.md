@@ -12,4 +12,4 @@ This repository covers the use of RISC-V based on a Zephyr project.
 
 ## Table of Content
 
--[Let's do a first test: running hellow world on RISC-V]()
+- [Let's do a first test: running hellow world on RISC-V]()
