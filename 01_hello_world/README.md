@@ -83,6 +83,19 @@ As described above, we used the __nordic-flpr__ snippet to include the vpr_launc
 
 11) Use the __Programmer__ tool from nRF Connect from Desktop and add both zephyr.hex files in the programmer. Then press __Erase & write__.
 
+    - Add _app_riscv zephyr.hex_ file to programmer:
+      
+      ![image](images/app_riscv_hex_file.jpg)   
+
+     We can see here that the RISC-V code is loaded into the upper memory area. It starts at address 0x0016574C.
+
+    - Now, let's add _app_arm_zephyr.hex_ file to programmer:
+   
+      ![image](images/app_arm_hex_file.jpg)
+
+    The code for the ARM Cortex-M33 starts at address 0x00000000, which is the start address of the ARM code. 
+
+
 ### Check response with Serial Terminal
 
 12) Open twice the __Serial Terminal__ and connect both to the nrf54l15. However, select different COM ports.
