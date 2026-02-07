@@ -48,7 +48,7 @@ We will therefore manually download the individual project images to the develop
     app_riscv/build/app_riscv/zephyr/zephyr.hex
 
 > __Note:__
-> The intel hex file _merged.hex_ can be found in the app_riscv/build/ directory. This contains a VPR Launcher code snippet for the ARM Cortex-M33. If we program the merged.hex file on an nRF54L15DK, we would see that the RISC-V sends the expected message via the virtual COM interface. But ARM Cortex-M33 does nothing—except display its Zephyr boot banner.
+> The Intel Hex file _merged.hex_ is located in the __app_riscv/build/__ directory. It contains the RISC-V code and a VPR launcher code snippet for the ARM Cortex-M33. If we program the _merged.hex_ file on an nRF54L15DK, we see that the ARM Cortex-M33 starts executing the code, copies the RISC-V code to the SRAM, and then starts the RISC-V. As expected, the RISC-V then sends a message via the virtual COM interface. The ARM Cortex-M33 would only output its Zephyr boot banner in its terminal.
 
 > __Note:__ This Intel hex file is also stored in this GitHub repository in the [__Intel-Hex files__](Intel-Hex_files) directory under the name __app_riscv_zephyr.hex__.
 
