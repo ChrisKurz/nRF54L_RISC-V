@@ -7,7 +7,7 @@ which CPU executed the code.
 In this hands-on session, I will try to build an understanding of how the individual projects are generally handled — i.e. the ARM Cortex-M33 project and the RISC-V project. 
 We will therefore manually download the individual project images to the development kit.  Later, in another hands-on session, we will look at how both projects can be generated and downloaded together using SYSBUILD. 
 
-> __Note:__ This example has been tested with nRF Connect SDK v3.1.0.
+> __Note:__ This example has been tested with nRF Connect SDK v3.2.1.
 
 
 ## Step-by-Step Description
