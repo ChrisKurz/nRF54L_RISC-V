@@ -100,3 +100,6 @@ As described above, we used the __nordic-flpr__ snippet to include the vpr_launc
 
 12) Open twice the __Serial Terminal__ and connect both to the nrf54l15. However, select different COM ports.
 13) You may have to press the RESET button on your dev kit. You should see in both Terminals the "Hello World!" message followed by the board target name. 
+
+   ![image](images/terminal.jpg)
+  
