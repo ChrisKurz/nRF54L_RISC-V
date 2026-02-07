@@ -103,3 +103,4 @@ As described above, we used the __nordic-flpr__ snippet to include the vpr_launc
 
    ![image](images/terminal.jpg)
   
+Since the _hello world_ project not only outputs the “Hello world” string, but also the board target name, we can see here which CPU the message is coming from. <code>cpuapp</code> is the output from the ARM Cortex-M33, and <code>cpuflpr</code> is the output from the RISC-V CPU. 
