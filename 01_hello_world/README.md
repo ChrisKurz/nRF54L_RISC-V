@@ -43,27 +43,33 @@ We will therefore manually download the individual project images to the develop
 >   With this board target, the RISC-V code is executed from non-volatile memory. Copying to SRAM is not necessary here.
 
 4) Then press the "Generate and Build" button.
-5) We have now generated the Intel Hex file for the RISC-V. We can find it in the following build directory:
+
+5) After the build process has run, we see in the <code>app_riscv</code> project that two projects have been created. Namely <code>app_riscv</code> and <code>vpr_launcher</code>. <code>app_riscv</code> is our _hello_world_ project that runs on the RISC-V CPU. The <code>vpr_launcher</code> project runs on the ARM Cortex-M33. It ensures that the RISC-V is started.
+
+   ![image](imgaes/riscv_project.jpg)
+
+If you add the file _app_riscv/build/merged.hex_ to the programmer, you can see that code is placed in the lower area as well as in the upper memory area. The <code>vpr_launcher</code> project is located at the bottom, and the <code></cpu>app_riscv</code> project is located above it.  
+
+   ![image](images/riscv_project_only.jpg)
+   
+6) However, in the next steps, we want to use an ARM Cortex project, and this should start the RISC-V. Therefore, we do not need the <code>vpr_launcher</code> in the RISC-V project. We use the _zephyr.hex_ file, which exclusively contains the RISC-V hello-world project. The zephyr.hex file can be found here:
 
     app_riscv/build/app_riscv/zephyr/zephyr.hex
-
-> __Note:__
-> The Intel Hex file _merged.hex_ is located in the __app_riscv/build/__ directory. It contains the RISC-V code and a VPR launcher code snippet for the ARM Cortex-M33. If we program the _merged.hex_ file on an nRF54L15DK, we see that the ARM Cortex-M33 starts executing the code, copies the RISC-V code to the SRAM, and then starts the RISC-V. As expected, the RISC-V then sends a message via the virtual COM interface. The ARM Cortex-M33 would only output its Zephyr boot banner in its terminal.
 
 > __Note:__ This Intel hex file is also stored in this GitHub repository in the [__Intel-Hex files__](Intel-Hex_files) directory under the name __app_riscv_zephyr.hex__.
 
 ### Let's build the ARM Cortex-M33 project
 
-6) Create a project for ARM Cortex-M33 by clicking __+ Open an existing application__ in Visual Studio Code under nRF Connect. Select the __app_arm__ directory there.
-7) Now the build configuration must be added to the project. We use here the following settings for this:
+7) Create a project for ARM Cortex-M33 by clicking __+ Open an existing application__ in Visual Studio Code under nRF Connect. Select the __app_arm__ directory there.
+8) Now the build configuration must be added to the project. We use here the following settings for this:
    > - __Board target:__  nrf54l15dk/nrf54l15/cpuapp
    > - __Snippets:__ nordic_flpr
 
 > __Note:__
 > By selecting the snippet _nordic-flpr_, the required VPR launcher is integrated into the project. When selecting the snippet, it is important to choose the appropriate solution that was also used in the RISC-V project. In other words, choose between RISC-V code execution in SRAM (_nordic-flpr_) or in non-volatile memory (_nordic-flpr-xip_).
 
-8) Then press the "Generate and Build" button.
-9) We have now generated the Intel Hex file for the ARM Cortex-M33. We can find it in the following build directory:
+9) Then press the "Generate and Build" button.
+10) We have now generated the Intel Hex file for the ARM Cortex-M33. We can find it in the following build directory:
 
     app_arm/build/app_arm/zephyr/zephyr.hex
 
@@ -75,13 +81,13 @@ We will therefore manually download the individual project images to the develop
 
 As described above, we used the __nordic-flpr__ snippet to include the vpr_launcher code into the ARM Cortex-M33 project. Here, we will check when this code is executed. 
 
-10) The __nRF Connect__ Visual Studio Code extension allows us to view the initialization levels in the __Details__ section under __Core overview__. This shows which threads are started during Zephyr RTOS start-up. Various levels (EARLY, PRE_KERNEL_1, PRE_KERNEL_2, POST_KERNEL, or APPLICATION) are listed here. First, we select the __app_arm__ build in __app_arm__ project. __Under Core overview__, we open __PRE_KERNEL_2__. Now we click on ____device_dts_ord_132__. This opens the file with the corresponding thread that is executed here. In our example, the VPR_launcher code opens.
+11) The __nRF Connect__ Visual Studio Code extension allows us to view the initialization levels in the __Details__ section under __Core overview__. This shows which threads are started during Zephyr RTOS start-up. Various levels (EARLY, PRE_KERNEL_1, PRE_KERNEL_2, POST_KERNEL, or APPLICATION) are listed here. First, we select the __app_arm__ build in __app_arm__ project. __Under Core overview__, we open __PRE_KERNEL_2__. Now we click on ____device_dts_ord_132__. This opens the file with the corresponding thread that is executed here. In our example, the VPR_launcher code opens.
 
    ![image](images/init_level.jpg)
 
 ### Download both Intel Hex files to the nRF54L15DK dev kit
 
-11) Use the __Programmer__ tool from nRF Connect from Desktop and add both zephyr.hex files in the programmer. Then press __Erase & write__.
+12) Use the __Programmer__ tool from nRF Connect from Desktop and add both zephyr.hex files in the programmer. Then press __Erase & write__.
 
     - Add _app_riscv zephyr.hex_ file to programmer:
       
@@ -98,8 +104,8 @@ As described above, we used the __nordic-flpr__ snippet to include the vpr_launc
 
 ### Check response with Serial Terminal
 
-12) Open twice the __Serial Terminal__ and connect both to the nrf54l15. However, select different COM ports.
-13) You may have to press the RESET button on your dev kit. You should see in both Terminals the "Hello World!" message followed by the board target name. 
+13) Open twice the __Serial Terminal__ and connect both to the nrf54l15. However, select different COM ports.
+14) You may have to press the RESET button on your dev kit. You should see in both Terminals the "Hello World!" message followed by the board target name. 
 
    ![image](images/terminal.jpg)
   
