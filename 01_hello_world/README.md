@@ -46,7 +46,7 @@ We will therefore manually download the individual project images to the develop
 
 5) After the build process has run, we see in the <code>app_riscv</code> project that two projects have been created. Namely <code>app_riscv</code> and <code>vpr_launcher</code>. <code>app_riscv</code> is our _hello_world_ project that runs on the RISC-V CPU. The <code>vpr_launcher</code> project runs on the ARM Cortex-M33. It ensures that the RISC-V is started.
 
-   ![image](imgaes/riscv_project.jpg)
+   ![image](images/riscv_project.jpg)
 
 If you add the file _app_riscv/build/merged.hex_ to the programmer, you can see that code is placed in the lower area as well as in the upper memory area. The <code>vpr_launcher</code> project is located at the bottom, and the <code></cpu>app_riscv</code> project is located above it.  
 
