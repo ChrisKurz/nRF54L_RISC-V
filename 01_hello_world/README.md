@@ -51,6 +51,8 @@ We will therefore manually download the individual project images to the develop
 If you add the file _app_riscv/build/merged.hex_ to the programmer, you can see that code is placed in the lower area as well as in the upper memory area. The <code>vpr_launcher</code> project is located at the bottom, and the <code></cpu>app_riscv</code> project is located above it.  
 
    ![image](images/riscv_project_only.jpg)
+
+> __Note:__ If a project contains only RISC-V code, the VPR launcher is included in the build by default. This happens because KCONFIG __SB_CONFIG_VPR_LAUNCHER__ is set to “y” at the SYSBUILD level. We can also avoid this inclusion by setting __SB_CONFIG_VPR_LAUNCHER__ to “n” in the sysbuild.conf file.
    
 6) However, in the next steps, we want to use an ARM Cortex project, and this should start the RISC-V. Therefore, we do not need the <code>vpr_launcher</code> in the RISC-V project. We use the _zephyr.hex_ file, which exclusively contains the RISC-V hello-world project. The zephyr.hex file can be found here:
 
