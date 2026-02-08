@@ -13,3 +13,6 @@ This repository covers the use of RISC-V based on a Zephyr project.
 ## Table of Content
 
 - [Let's do a first test: running _hello world_ on RISC-V](01_hello_world/README.md)
+- Using SYSBUILD to handle ARM Cortex project and RISC-V project in the same VS Code project. Please take a look at _nRF Connect SDK Intermediate_ course of Nordic's Developer Academy. The appropriate exercise can be found [here](https://academy.nordicsemi.com/courses/nrf-connect-sdk-intermediate/lessons/lesson-8-sysbuild/topic/exercise-2-adding-custom-image/).
+
+- 
