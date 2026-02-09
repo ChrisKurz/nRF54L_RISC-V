@@ -89,7 +89,8 @@ As described above, we used the __nordic-flpr__ snippet to include the vpr_launc
 
 ### Download both Intel Hex files to the nRF54L15DK dev kit
 
-12) Use the __Programmer__ tool from nRF Connect from Desktop and add both zephyr.hex files in the programmer. Then press __Erase & write__.
+12) Ensure that no images are listed in the File memory layout, e.g., by clicking the Clear files button.
+13) Use the __Programmer__ tool from nRF Connect from Desktop and add both zephyr.hex files in the programmer. Then press __Erase & write__.
 
     - Add _app_riscv zephyr.hex_ file to programmer:
       
@@ -106,8 +107,8 @@ As described above, we used the __nordic-flpr__ snippet to include the vpr_launc
 
 ### Check response with Serial Terminal
 
-13) Open twice the __Serial Terminal__ and connect both to the nrf54l15. However, select different COM ports.
-14) You may have to press the RESET button on your dev kit. You should see in both Terminals the "Hello World!" message followed by the board target name. 
+14) Open twice the __Serial Terminal__ and connect both to the nrf54l15. However, select different COM ports.
+15) You may have to press the RESET button on your dev kit. You should see in both Terminals the "Hello World!" message followed by the board target name. 
 
    ![image](images/terminal.jpg)
   
