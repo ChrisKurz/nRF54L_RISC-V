@@ -96,7 +96,7 @@ As described above, we used the __nordic-flpr__ snippet to include the vpr_launc
       
       ![image](images/app_riscv_hex_file.jpg)   
 
-     We can see here that the RISC-V code is loaded into the upper memory area. It starts at address 0x0016574C.
+     We can see here that the RISC-V code is loaded into the upper memory area. It starts at address 0x00165000.
 
     - Now, let's add _app_arm_zephyr.hex_ file to programmer:
    
