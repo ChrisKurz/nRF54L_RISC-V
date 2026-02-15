@@ -65,6 +65,7 @@ If you add the file _app_riscv/build/merged.hex_ to the programmer, you can see 
 7) Create a project for ARM Cortex-M33 by clicking __+ Open an existing application__ in Visual Studio Code under nRF Connect. Select the __app_arm__ directory there.
 8) Now the build configuration must be added to the project. We use here the following settings for this:
    > - __Board target:__  nrf54l15dk/nrf54l15/cpuapp
+   > > __Note:__ We place the ARM Cortex-M33 code in the Secure domain of Trustzone. In this hands-on, this is the only option. In a later hands-on, we will look at how the project can also be placed in the Non-Secure domain.
    > - __Snippets:__ nordic_flpr
 
 > __Note:__
@@ -89,13 +90,14 @@ As described above, we used the __nordic-flpr__ snippet to include the vpr_launc
 
 ### Download both Intel Hex files to the nRF54L15DK dev kit
 
-12) Use the __Programmer__ tool from nRF Connect from Desktop and add both zephyr.hex files in the programmer. Then press __Erase & write__.
+12) Ensure that no images are listed in the File memory layout, e.g., by clicking the Clear files button.
+13) Use the __Programmer__ tool from nRF Connect from Desktop and add both zephyr.hex files in the programmer. Then press __Erase & write__.
 
     - Add _app_riscv zephyr.hex_ file to programmer:
       
       ![image](images/app_riscv_hex_file.jpg)   
 
-     We can see here that the RISC-V code is loaded into the upper memory area. It starts at address 0x0016574C.
+     We can see here that the RISC-V code is loaded into the upper memory area. It starts at address 0x00165000.
 
     - Now, let's add _app_arm_zephyr.hex_ file to programmer:
    
@@ -106,8 +108,8 @@ As described above, we used the __nordic-flpr__ snippet to include the vpr_launc
 
 ### Check response with Serial Terminal
 
-13) Open twice the __Serial Terminal__ and connect both to the nrf54l15. However, select different COM ports.
-14) You may have to press the RESET button on your dev kit. You should see in both Terminals the "Hello World!" message followed by the board target name. 
+14) Open twice the __Serial Terminal__ and connect both to the nrf54l15. However, select different COM ports.
+15) You may have to press the RESET button on your dev kit. You should see in both Terminals the "Hello World!" message followed by the board target name. 
 
    ![image](images/terminal.jpg)
   
