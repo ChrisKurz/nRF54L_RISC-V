@@ -65,6 +65,7 @@ If you add the file _app_riscv/build/merged.hex_ to the programmer, you can see 
 7) Create a project for ARM Cortex-M33 by clicking __+ Open an existing application__ in Visual Studio Code under nRF Connect. Select the __app_arm__ directory there.
 8) Now the build configuration must be added to the project. We use here the following settings for this:
    > - __Board target:__  nrf54l15dk/nrf54l15/cpuapp
+   > > __Note:__ We place the ARM Cortex-M33 code in the Secure domain of Trustzone. In this hands-on, this is the only option. In a later hands-on, we will look at how the project can also be placed in the Non-Secure domain.
    > - __Snippets:__ nordic_flpr
 
 > __Note:__
