@@ -27,9 +27,9 @@ In this hands-on session, we will again work with two separate projects, namely 
 
 5) So far, we have been working with the default settings for both the memory partition and the VPR (RISC-V) settings. We will continue to work with the default settings for the memory partition. However, we need to adjust the VPR settings. The VPR of the nRF54L series is treated like a peripheral module. This applies in particular to the ARM Cortex-M33 Trustzone handling. VPR can be placed either in the Secure domain or the Non-Secure domain. This is defined via the VPR DeviceTree settings. The default definition was made so that VPR is located in the Secure domain. We will now change this by adding the following DeviceTree overlay file to our project. Add following lines in the file _nrf54l15dk_nrf54l15_cpuapp_ns.overlay_:
 
-      &cpuflpr_vpr {
-          /delete-property/ enable-secure;
-      };
+       &cpuflpr_vpr {
+           /delete-property/ enable-secure;
+       };
 
   > __Note:__ __enable-secure__ is a boolean property. This means that if the symbol __enable-secure__ is listed in the _cpuflpr_vpr_ node, this property is set to true. If the property is not listed, it corresponds to false. Since we want to set __enable-secure__ to false here, we remove it using <code>/delete-property/</code>.
 
