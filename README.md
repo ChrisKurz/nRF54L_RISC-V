@@ -23,3 +23,8 @@ This repository covers the use of RISC-V based on a Zephyr project.
 - Passing data between ARM Cortex-M33 and RISC-V: The two cores communicate with each other via a shared memory and the ability to notify the other core of new data via an interrupt. Zephyr contains software libraries that support this concept. Although OpenAmp and RPMsg are available, they are too complex for easy implementation with the nRF54L. The [ICMsg](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/services/ipc/ipc_service/backends/ipc_service_icmsg.html#ipc-service-backend-icmsg) software library is more commonly used here. Examples of the ICMsg Library can be found [here](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/samples/ipc/ipc_service/README.html).
 
 
+## Links to Blog Articles
+
+- [Introducing the RISC-V coprocessor of the nRF54L Series](https://devzone.nordicsemi.com/nordic/nordic-blog/b/blog/posts/introducing-the-risc-v-coprocessor-of-the-nrf54l-series)
+- [Memory layout of applications using the RISC-V coprocessor of the nRF54L Series](https://devzone.nordicsemi.com/nordic/nordic-blog/b/blog/posts/memory-layout-of-applications-using-the-risc-v-coprocessor-of-the-nrf54l-series)
+- [Debugging applications that use the RISC-V coprocessor of the nRF54L Series](https://devzone.nordicsemi.com/nordic/nordic-blog/b/blog/posts/debugging-applications-that-use-the-riscv-coprocessor-of-the-nrf54l-series)
